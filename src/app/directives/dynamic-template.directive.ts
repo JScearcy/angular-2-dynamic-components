@@ -39,6 +39,9 @@ export class DynamicTemplateDirective {
       constructor() {
         for (let key in values.functions) {
           this[key] = new Function(values.functions[key]);
+          if (Object && Object.defineProperty) {
+            Object.defineProperty(this[key], 'name', {value: key});
+          }
         }
 
         for (let key in values.bindings) {
