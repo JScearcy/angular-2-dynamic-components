@@ -1,3 +1,18 @@
 <h1>
   {{title}}
 </h1>
+
+<div>
+  <div *ngIf="error">
+    <h4>There was an error: {{error}}</h4>
+  </div>
+  <div>
+    <div>
+      <label for="template">Component Create</label>
+    </div>
+    <textarea name="template" #inputbox type="text" (keyup)="0" cols="100" rows="15"></textarea>
+  </div>
+  <button (click)="addInput(inputbox.value)">Add Input</button>
+</div>
+<div *appDynamicTemplate="data" >
+</div>
