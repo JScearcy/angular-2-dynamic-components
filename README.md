@@ -29,7 +29,7 @@ Example JSON:
         }
     }   
 ```
-Which is parsed within the app.component.ts and given to the directive after being `JSON.parse()`-d
+Which is  `JSON.parse()`-d in the app.component.ts located in the src/app folder and given to the directive
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
