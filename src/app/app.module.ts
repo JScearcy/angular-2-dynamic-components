@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { DynamicTemplateDirective } from './directives/dynamic-template.directive';
+import { DynamicComponentDirective } from './directives/dynamic-component.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DynamicTemplateDirective
+    DynamicComponentDirective
   ],
   imports: [
     BrowserModule,

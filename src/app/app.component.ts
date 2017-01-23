@@ -12,8 +12,15 @@ export class AppComponent implements OnInit {
 
   addInput(value) {
     this.error = undefined;
+    // Parse the JSON into an object that the directive can use
     try {
-      this.data = JSON.parse(value);
+      let currentData = JSON.parse(value);
+      // This allows arrays to be used to break up the template 
+      if (Array.isArray(currentData.template)) {
+        currentData.template = currentData.template.join('');
+      }
+      // Set the attribute for the directive to use
+      this.data = currentData;
     } catch (e) {
       this.error = e;
     }
@@ -22,3 +29,4 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 }
+ 
