@@ -6,6 +6,7 @@ interface DynamicComponent {}
 export interface ComponentOptions {
   template: string;
   bindings: any;
+  functions: any;
 }
 
 @Directive({
@@ -33,12 +34,16 @@ export class DynamicTemplateDirective {
       selector: 'dynamic-component',
       template: values.template,
     })
-    class DynamicComponent implements DynamicComponent { 
-      public bindings = values.bindings;
-      public isClicked = false;
+    class DynamicComponent implements DynamicComponent {
+      // running unknown code isn't really the safest thing to do, just an example.
+      constructor() {
+        for (let key in values.functions) {
+          this[key] = new Function(values.functions[key]);
+        }
 
-      clickHandle() {
-        this.isClicked = !this.isClicked;
+        for (let key in values.bindings) {
+          this[key] = values.bindings[key];
+        }
       }
     }
 

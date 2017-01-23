@@ -8,9 +8,7 @@ import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'Angular 2 Html Strings';
   data: any;
-  error;
-  @ViewChild('dynamicTemplate', {read: ViewContainerRef})
-  protected dynamicTemplate: ViewContainerRef;
+  error: any;
 
   addInput(value) {
     this.error = undefined;
